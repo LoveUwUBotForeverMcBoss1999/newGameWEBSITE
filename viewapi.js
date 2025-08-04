@@ -6,7 +6,7 @@
     const firstVisit = document.getElementById('first-visit');
 
     // Make API call
-    fetch('https://your-vercel-app.vercel.app/')
+    fetch('https://new-game-web-view-count-api.vercel.app')
     .then(r => r.json())
     .then(data => {
         console.log('✅ View tracked:', data);
