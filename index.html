@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TunSub - View Tracker Test</title>
+    <title>TunSub - Clean the Depths</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,99 +14,300 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Press Start 2P', monospace;
+            background: linear-gradient(180deg, #1a4b8c 0%, #0f2844 50%, #0a1b2e 100%);
+            color: #ffffff;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+            overflow-x: hidden;
         }
 
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 500px;
+            padding: 40px 0;
+            border-bottom: 3px solid #4a9eff;
         }
 
-        h1 {
-            font-size: 2.5em;
+        .logo {
+            font-size: 48px;
+            color: #4a9eff;
+            text-shadow: 3px 3px 0px #1a365d;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #87ceeb;
+            margin-top: 15px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 60px 0;
+            align-items: start;
+        }
+
+        .game-info {
+            background: rgba(26, 75, 140, 0.3);
+            border: 2px solid #4a9eff;
+            padding: 30px;
+            border-radius: 0;
+        }
+
+        .game-info h2 {
+            color: #4a9eff;
+            font-size: 18px;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-align: center;
         }
 
-        .stats {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+        .story {
+            font-size: 10px;
+            line-height: 1.8;
+            color: #e0f4ff;
+            margin-bottom: 25px;
+        }
+
+        .features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features li {
+            font-size: 10px;
+            color: #87ceeb;
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .features li:before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #4a9eff;
+        }
+
+        .game-image {
+            text-align: center;
+            background: rgba(15, 40, 68, 0.5);
+            border: 2px solid #2c5aa0;
             padding: 20px;
-            margin: 20px 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-            font-size: 1.1em;
+        .game-image img {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #4a9eff;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
+        .controls {
+            background: rgba(10, 27, 46, 0.7);
+            border: 2px solid #4a9eff;
+            padding: 25px;
+            margin-top: 40px;
+            text-align: center;
         }
 
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+        .controls h3 {
+            color: #4a9eff;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
 
-        .loading {
-            color: #4ecdc4;
+        .control-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
-        .success {
-            color: #2ecc71;
+        .control-item {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid #4a9eff;
+            padding: 10px;
+            font-size: 8px;
+            text-align: center;
         }
 
-        .error {
-            color: #e74c3c;
+        .danger-warning {
+            background: rgba(139, 0, 0, 0.3);
+            border: 2px solid #ff6b6b;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .danger-warning h3 {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .danger-warning p {
+            font-size: 9px;
+            color: #ffcccc;
+        }
+
+        .play-button {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn {
+            background: #4a9eff;
+            color: #0a1b2e;
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            border: 3px solid #1a365d;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #87ceeb;
+            transform: translate(2px, 2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 3px solid #4a9eff;
+            font-size: 8px;
+            color: #87ceeb;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .logo {
+                font-size: 32px;
+            }
+
+            .control-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tunnel-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .tunnel-decoration:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 60px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                #4a9eff 0px,
+                #4a9eff 2px,
+                transparent 2px,
+                transparent 20px
+            );
+        }
+
+        .tunnel-decoration:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -20px;
+            width: 60px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                #4a9eff 0px,
+                #4a9eff 2px,
+                transparent 2px,
+                transparent 20px
+            );
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 TunSub</h1>
-        <p>Welcome to our awesome site! Your visit is being tracked.</p>
+    <div class="tunnel-decoration"></div>
 
-        <div class="stats">
-            <h3>📊 View Statistics</h3>
-            <div class="stat-item">
-                <span>Status:</span>
-                <span id="status" class="loading pulse">Loading...</span>
+    <div class="container">
+        <header>
+            <h1 class="logo">TUNSUB</h1>
+            <p class="tagline">DIVE DEEP • CLEAN TUNNELS • SURVIVE THE DEPTHS</p>
+        </header>
+
+        <div class="main-content">
+            <div class="game-info">
+                <h2>THE MISSION</h2>
+                <div class="story">
+                    Long ago, massive underwater tunnels connected cities across the ocean floor. These submarine highways bustled with public transport until disaster struck. Now they lie abandoned, infested with deadly sharks and crumbling infrastructure.
+                    <br><br>
+                    You are the tunnel cleaner. Armed with determination and pixel-perfect precision, navigate the treacherous depths, eliminate the shark threat, and restore these vital passages for humanity.
+                </div>
+
+                <ul class="features">
+                    <li>Navigate claustrophobic underwater tunnels</li>
+                    <li>Battle aggressive shark populations</li>
+                    <li>Avoid deadly tunnel wall damage</li>
+                    <li>Restore public transportation routes</li>
+                    <li>Master pixel-perfect movement controls</li>
+                    <li>Survive the crushing ocean depths</li>
+                </ul>
             </div>
-            <div class="stat-item">
-                <span>Your IP:</span>
-                <span id="ip">-</span>
-            </div>
-            <div class="stat-item">
-                <span>Total Views:</span>
-                <span id="views">-</span>
-            </div>
-            <div class="stat-item">
-                <span>First Visit:</span>
-                <span id="first-visit">-</span>
+
+            <div class="game-image">
+                <img src="tunsub.mcboss.top/img1" alt="TunSub Game Screenshot" onerror="this.style.display='none';">
+                <p style="font-size: 8px; color: #87ceeb; margin-top: 10px;">Pixel art submarine tunnel exploration</p>
             </div>
         </div>
 
-        <p><small>🔒 Privacy: Only your IP and basic info is tracked for analytics.</small></p>
+        <div class="danger-warning">
+            <h3>⚠ DANGER ZONE ⚠</h3>
+            <p>Tunnel walls are unstable. Sharks are territorial. Oxygen is limited. One wrong move could be your last.</p>
+        </div>
+
+        <div class="controls">
+            <h3>OPERATIONAL CONTROLS</h3>
+            <div class="control-grid">
+                <div class="control-item">ARROW KEYS<br>Navigate Sub</div>
+                <div class="control-item">SPACEBAR<br>Primary Fire</div>
+                <div class="control-item">SHIFT<br>Boost Speed</div>
+                <div class="control-item">CTRL<br>Emergency Brake</div>
+                <div class="control-item">ESC<br>Surface Menu</div>
+                <div class="control-item">R<br>Restart Mission</div>
+            </div>
+        </div>
+
+        <div class="play-button">
+            <a href="#" class="btn">ENTER THE DEPTHS</a>
+        </div>
+
+        <footer>
+            <p>© 2024 TUNSUB PROJECT • RESTORE THE UNDERWATER HIGHWAYS • MCBOSS.TOP</p>
+        </footer>
     </div>
 
     <!-- Include the view tracker -->
