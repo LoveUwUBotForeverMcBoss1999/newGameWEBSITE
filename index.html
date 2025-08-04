@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Facts Generator</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background-color: #282c34;
+      color: #ffffff;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    #fact-box {
+      background: #444;
+      padding: 30px;
+      margin: 20px auto;
+      width: 60%;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #61dafb;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #21a1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🤯 Random Facts Generator 🤔</h1>
+  <div id="fact-box">Click the button to blow your mind!</div>
+  <button onclick="generateFact()">Get Random Fact</button>
+
+  <script>
+    const facts = [
+      "Bananas are berries, but strawberries aren't!",
+      "Honey never spoils. Archaeologists have found 3,000-year-old jars of it.",
+      "Octopuses have three hearts.",
+      "There's more stars in the universe than grains of sand on Earth.",
+      "Sloths can hold their breath longer than dolphins can.",
+      "A day on Venus is longer than a year on Venus.",
+      "Cats have fewer toes on their back paws."
+    ];
+
+    function generateFact() {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      document.getElementById("fact-box").textContent = facts[randomIndex];
+    }
+  </script>
+<script src="viewcount.js" data-api-url="https://your-api.vercel.app"></script>
+
+</body>
+</html>
